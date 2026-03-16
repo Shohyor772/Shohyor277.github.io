@@ -1,40 +1,274 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Отчет по заданиям</title>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторная работа №1 — Отчет</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+            background: #0f172a;  /* глубокий тёмно-синий */
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Заголовки */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            border-left: 6px solid #818cf8;
+            padding-left: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #a5b4fc;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 2px solid #334155;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: #cbd5e1;
+            margin: 1.5rem 0 0.8rem 0;
+        }
+
+        /* Студент */
+        .student-badge {
+            display: inline-block;
+            background: #1e293b;
+            border-radius: 30px;
+            padding: 0.4rem 1.2rem;
+            margin-bottom: 2rem;
+            border: 1px solid #334155;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+        .student-badge strong {
+            color: #a78bfa;
+        }
+
+        /* Текст и код */
+        p {
+            background: #1a2538;
+            padding: 1.2rem 1.5rem;
+            border-radius: 16px;
+            border-left: 4px solid #6366f1;
+            margin: 1rem 0 1.5rem 0;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
+        }
+
+        code {
+            background: #0f172a;
+            color: #f472b6;
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.9em;
+            border: 1px solid #334155;
+        }
+
+        /* Карточки для скриншотов */
+        .screenshot-card {
+            background: #1e293b;
+            border-radius: 24px;
+            padding: 1rem;
+            margin: 1.8rem 0;
+            box-shadow: 0 20px 30px -10px #020617;
+            border: 1px solid #2d3a4f;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 40px -12px #0f0f1f;
+            border-color: #6366f1;
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            border: 2px solid #2d3a4f;
+            display: block;
+        }
+
+        .screenshot-label {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+        }
+
+        .screenshot-label span {
+            background: #6366f1;
+            color: white;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.75rem;
+        }
+
+        /* Сетка для нескольких картинок */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        @media (max-width: 700px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 { font-size: 1.8rem; }
+            .container { padding: 0; }
+        }
+
+        /* Стили для подсказок */
+        .note {
+            background: #2b3b4e;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin: 1.2rem 0;
+            color: #fcd34d;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #334155, transparent);
+            margin: 2rem 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Отчет по выполнению заданий</h1>
-    <p><strong>Студент:</strong> u82431</p>
+    <div class="container">
+        <h1>📡 Отчет по выполнению заданий</h1>
+        <div class="student-badge">
+            <strong>Студент:</strong> u82431
+        </div>
 
-    <h2>Ввод данных в PuTTY</h2>
-    <img src="screenshots/putty.png" alt="PuTTY" width="900">
-    
-    <h2>1. Результат команды ping</h2>
-    <p><strong>Команда ping</strong> используется для проверки доступности узла сети и измерения времени отклика. В данном случае мы выполнили <code>ping -c 4 kubsu.ru</code>, чтобы определить IP-адрес сервера, на котором размещён сайт kubsu.ru. Первая строка вывода команды содержит IP-адрес в квадратных скобках. Флаг <code>-c 4</code> ограничивает отправку четырьмя пакетами, после чего команда автоматически завершается.</p>
-    <p>Определение IP-адреса домена kubsu.ru</p>
-    <img src="screenshots/ping.png" alt="ping kubsu.ru" width="900">
+        <!-- Ввод данных в PuTTY (если нужен) -->
+        <h2>⚙️ Ввод данных в PuTTY</h2>
+        <div class="screenshot-card">
+            <div class="screenshot-label">
+                <span>шаг 0</span> подключение
+            </div>
+            <img src="screenshots/putty.png" alt="Настройки PuTTY">
+        </div>
 
-    <h2>2. Результат команды nslookup</h2>
-    <p><strong>Команда nslookup с типом A</strong> (Address) используется для получения IPv4-адреса, соответствующего доменному имени. A-запись связывает домен с конкретным сервером. Мы выполнили <code>nslookup -type=A kubsu.ru</code> и <code>nslookup -type=A kubsu-dev.ru</code>, чтобы узнать, на какие IP-адреса указывают эти домены.</p>
-    <p><strong>Команда nslookup с типом MX</strong> (Mail Exchange) показывает, какие почтовые серверы обрабатывают электронную почту для данного домена. Число перед сервером — это приоритет: чем оно меньше, тем выше приоритет сервера. Мы выполнили <code>nslookup -type=MX kubsu.ru</code> и <code>nslookup -type=MX kubsu-dev.ru</code>, чтобы определить почтовые серверы этих доменов.</p>
-    <h3>Домен kubsu.ru</h3>
-    <img src="screenshots/nslookup_kubsu-A.png" alt="nslookup kubsu.ru-A" width="900">
-    <img src="screenshots/nslookup_kubsu-MX.png" alt="nslookup kubsu.ru-MX" width="900">
-    <h3>Домен kubsu-dev.ru</h3>
-    <img src="screenshots/nslookup_kubsu-dev-A.png" alt="nslookup kubsu-dev.ru" width="900">
-    <img src="screenshots/nslookup_kubsu-dev-MX.png" alt="nslookup kubsu-dev.ru" width="900">
+        <hr>
 
-    <h2>3. Результат команды whois</h2>
-    <p><strong>Команда whois</strong> позволяет получить регистрационную информацию о домене: дату регистрации, дату окончания срока регистрации, данные о регистраторе и администраторе. В данном задании нас интересовала дата регистрации доменов <code>kubsu.ru</code> и <code>kubsu-dev.ru</code>. Эту информацию мы нашли в строках <code>created:</code> или <code>Creation Date:</code> в выводе команды <code>whois</code>.</p>
-    <h3>Домен kubsu.ru</h3>
-    <img src="screenshots/whois_kubsu.png" alt="whois kubsu.ru" width="900">
-    <h3>Домен kubsu-dev.ru</h3>
-    <img src="screenshots/whois_kubsu-dev.png" alt="whois kubsu-dev.ru" width="900">
+        <!-- 1. Ping -->
+        <h2>1. 🏓 Команда ping</h2>
+        <p>
+            <strong>Команда ping</strong> используется для проверки доступности узла сети и измерения времени отклика. 
+            В данном случае мы выполнили <code>ping -c 4 kubsu.ru</code>, чтобы определить IP-адрес сервера, на котором размещён сайт kubsu.ru. 
+            Первая строка вывода команды содержит IP-адрес в квадратных скобках. Флаг <code>-c 4</code> ограничивает отправку четырьмя пакетами, после чего команда автоматически завершается.
+        </p>
+        <div class="screenshot-card">
+            <div class="screenshot-label">
+                <span>задание 1</span> ping kubsu.ru
+            </div>
+            <img src="screenshots/ping.png" alt="ping kubsu.ru">
+        </div>
 
-    <h2>4. Скриншот подключения в FileZilla</h2>
-    <p><strong>FileZilla</strong> — это FTP-клиент с поддержкой SFTP (SSH File Transfer Protocol). Мы использовали его, чтобы скачать файлы с учебного сервера на локальный компьютер по защищённому протоколу. На скриншоте видно успешное подключение к серверу <code>kubsu-dev.ru</code> на порт <code>58528</code> и процесс скачивания файлов из папки <code>www/zadanie-1</code>. Зелёные строки в нижней панели подтверждают, что все файлы были успешно переданы.</p>
-    <img src="screenshots/filezilla.png" aly="FileZilla" width="900">
+        <hr>
+
+        <!-- 2. nslookup -->
+        <h2>2. 🔍 Команда nslookup</h2>
+        <p>
+            <strong>Команда nslookup с типом A</strong> (Address) используется для получения IPv4-адреса, соответствующего доменному имени. A-запись связывает домен с конкретным сервером. Мы выполнили <code>nslookup -type=A kubsu.ru</code> и <code>nslookup -type=A kubsu-dev.ru</code>, чтобы узнать, на какие IP-адреса указывают эти домены.
+        </p>
+        <p>
+            <strong>Команда nslookup с типом MX</strong> (Mail Exchange) показывает, какие почтовые серверы обрабатывают электронную почту для данного домена. Число перед сервером — это приоритет: чем оно меньше, тем выше приоритет сервера. Мы выполнили <code>nslookup -type=MX kubsu.ru</code> и <code>nslookup -type=MX kubsu-dev.ru</code>, чтобы определить почтовые серверы этих доменов.
+        </p>
+
+        <h3>📌 Домен kubsu.ru</h3>
+        <div class="grid-2">
+            <div class="screenshot-card">
+                <div class="screenshot-label"><span>A</span> A-запись</div>
+                <img src="screenshots/nslookup_kubsu-A.png" alt="nslookup kubsu.ru A">
+            </div>
+            <div class="screenshot-card">
+                <div class="screenshot-label"><span>MX</span> MX-запись</div>
+                <img src="screenshots/nslookup_kubsu-MX.png" alt="nslookup kubsu.ru MX">
+            </div>
+        </div>
+
+        <h3>📌 Домен kubsu-dev.ru</h3>
+        <div class="grid-2">
+            <div class="screenshot-card">
+                <div class="screenshot-label"><span>A</span> A-запись</div>
+                <img src="screenshots/nslookup_kubsu-dev-A.png" alt="nslookup kubsu-dev.ru A">
+            </div>
+            <div class="screenshot-card">
+                <div class="screenshot-label"><span>MX</span> MX-запись</div>
+                <img src="screenshots/nslookup_kubsu-dev-MX.png" alt="nslookup kubsu-dev.ru MX">
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- 3. whois -->
+        <h2>3. 📋 Команда whois</h2>
+        <p>
+            <strong>Команда whois</strong> позволяет получить регистрационную информацию о домене: дату регистрации, дату окончания срока регистрации, данные о регистраторе и администраторе. В данном задании нас интересовала дата регистрации доменов <code>kubsu.ru</code> и <code>kubsu-dev.ru</code>. Эту информацию мы нашли в строках <code>created:</code> или <code>Creation Date:</code> в выводе команды <code>whois</code>.
+        </p>
+
+        <h3>🏠 Домен kubsu.ru</h3>
+        <div class="screenshot-card">
+            <div class="screenshot-label"><span>whois</span> kubsu.ru</div>
+            <img src="screenshots/whois_kubsu.png" alt="whois kubsu.ru">
+        </div>
+
+        <h3>🏠 Домен kubsu-dev.ru</h3>
+        <div class="screenshot-card">
+            <div class="screenshot-label"><span>whois</span> kubsu-dev.ru</div>
+            <img src="screenshots/whois_kubsu-dev.png" alt="whois kubsu-dev.ru">
+        </div>
+
+        <hr>
+
+        <!-- 4. FileZilla -->
+        <h2>4. 📤 Подключение через FileZilla (SFTP)</h2>
+        <p>
+            <strong>FileZilla</strong> — это FTP-клиент с поддержкой SFTP (SSH File Transfer Protocol). Мы использовали его, чтобы скачать файлы с учебного сервера на локальный компьютер по защищённому протоколу. На скриншоте видно успешное подключение к серверу <code>kubsu-dev.ru</code> на порт <code>58528</code> и процесс скачивания файлов из папки <code>www/zadanie-1</code>. Зелёные строки в нижней панели подтверждают, что все файлы были успешно переданы.
+        </p>
+        <div class="screenshot-card">
+            <div class="screenshot-label"><span>SFTP</span> FileZilla</div>
+            <img src="screenshots/filezilla.png" alt="FileZilla">
+        </div>
+
+        <!-- Дополнительная информация -->
+        <div class="note">
+            ✅ Все задания выполнены, скриншоты загружены. Работа сдана.
+        </div>
+    </div>
 </body>
 </html>
