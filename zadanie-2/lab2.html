@@ -270,6 +270,15 @@
             <p style="color: #94a3b8; margin-top: 0.5rem;">Файлы для запросов: <code>index.php</code>, <code>image.png</code>, <code>file.tar.gz</code> — лежат в папке <code>/zadanie-2/</code>.</p>
         </div>
 
+        <h2>⚙️ Ввод для подключения PUTTY</h2>
+        <div class="screenshot-card">
+            <div class="screenshot-label">
+                <span>шаг 0</span> подключение
+            </div>
+            <img src="screenshots/PUTTY connect.png" alt="Ввод данных">
+        </div>
+
+        <hr>
         <!-- 1. GET HTTP/1.0 -->
         <h2><span class="badge">01</span> GET /index.php (HTTP/1.0)</h2>
         <div class="description">
@@ -282,6 +291,16 @@
                 <span class="filename">index.php</span>
             </div>
             <img src="Screenshots/lab2_1_get_1_0.png" alt="GET HTTP/1.0">
+        </div>
+
+        <hr>
+
+        <h2>⚙️ Загруженный на сервер файл</h2>
+        <div class="screenshot-card">
+            <div class="screenshot-label">
+                <span>шаг 0</span> подключение
+            </div>
+            <img src="screenshots/fileOnFZ.png" alt="Файл на FileZilla">
         </div>
 
         <hr>
@@ -339,14 +358,6 @@
         <div class="description">
             <strong>Метод POST</strong> используется для отправки данных на сервер, например, при заполнении форм. Мы отправили POST-запрос к файлу <code>index.php</code> с данными формы <code>comment=Hi!</code>. Для этого указали заголовок <code>Content-Type: application/x-www-form-urlencoded</code> (стандартный для HTML-форм) и заголовок <code>Content-Length</code> с точной длиной тела запроса. Сервер успешно принял данные, что видно по массиву <code>[comment] => Hi!</code> в ответе, и выполнил PHP-код.
         </div>
-        <div class="request-example">
-            POST /zadanie-2/index.php HTTP/1.1<br>
-            Host: u82431.kubsu-dev.ru<br>
-            Content-Type: application/x-www-form-urlencoded<br>
-            Content-Length: 11<br>
-            <br>
-            comment=Hi!
-        </div>
         <div class="screenshot-card">
             <div class="screenshot-header">
                 <span class="method-badge">POST</span>
@@ -362,11 +373,6 @@
         <h2><span class="badge">06</span> GET file.tar.gz (первые 100 байт)</h2>
         <div class="description">
             <strong>Заголовок <code>Range</code> позволяет запросить не весь файл, а только его часть</strong>. Это полезно для докачки файлов или потокового воспроизведения. Мы отправили GET-запрос к файлу <code>file.tar.gz</code> с заголовком <code>Range: bytes=0-99</code>, что означает "отдать первые 100 байт". В ответе сервер вернул статус <code>206 Partial Content</code>, заголовок <code>Content-Range</code> с указанием диапазона и общим размером файла, а в теле — первые 100 байт архива (бинарные данные, которые выглядят как "каша").
-        </div>
-        <div class="request-example">
-            GET /zadanie-2/file.tar.gz HTTP/1.1<br>
-            Host: u82431.kubsu-dev.ru<br>
-            Range: bytes=0-99
         </div>
         <div class="screenshot-card">
             <div class="screenshot-header">
