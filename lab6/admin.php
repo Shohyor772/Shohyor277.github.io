@@ -138,6 +138,7 @@ if (isset($_GET['edit'])) {
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Админ-панель — Управление пользователями</title>
     <style>

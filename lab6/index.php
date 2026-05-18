@@ -248,6 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_action'])) {
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Лабораторная №5 — Регистрация + Сессии</title>
     <link rel="stylesheet" href="style.css">
