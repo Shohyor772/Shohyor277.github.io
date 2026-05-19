@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторные работы — u82431</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 {
+            background: linear-gradient(135deg, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            border-left: 6px solid #818cf8;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .lab-card {
+            background: #1e293b;
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 1px solid #2d3a4f;
+            transition: 0.2s;
+        }
+        .lab-card:hover {
+            transform: translateY(-4px);
+            border-color: #6366f1;
+        }
+        .lab-card h2 { color: #a5b4fc; margin-bottom: 0.5rem; }
+        .lab-card .badge {
+            background: #6366f1;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+        .lab-card a {
+            display: inline-block;
+            background: #6366f1;
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            text-decoration: none;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .lab-card a:hover { background: #818cf8; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📡 Лабораторные работы</h1>
+        <p><strong>Студент:</strong> u82431</p>
+
+        <div class="labs-grid">
+            <div class="lab-card">
+                <div class="badge">основы SSH + Git</div>
+                <h2>Лабораторная №1</h2>
+                <p>Подключение к серверу, ping, nslookup, whois, Git, FileZilla.</p>
+                <a href="lab1/index.html">🔗 Открыть →</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">HTTP-запросы</div>
+                <h2>Лабораторная №2</h2>
+                <p>GET, HEAD, POST, Range-запросы вручную через PuTTY.</p>
+                <a href="lab2/lab2.html">🔗 Открыть →</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">форма + БД</div>
+                <h2>Лабораторная №3</h2>
+                <p>Форма, сохранение в MySQL, PDO, подготовленные запросы.</p>
+                <a href="lab3/index.php">🔗 Открыть →</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">Cookies</div>
+                <h2>Лабораторная №4</h2>
+                <p>Сохранение данных в Cookies, подсветка ошибок.</p>
+                <a href="lab4/index.php">🔗 Открыть →</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">регистрация + сессии</div>
+                <h2>Лабораторная №5</h2>
+                <p>Генерация логина/пароля, хеширование, авторизация.</p>
+                <a href="lab5/index.php">🔗 Открыть →</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">админка + статистика</div>
+                <h2>Лабораторная №6</h2>
+                <p>HTTP-авторизация, таблица пользователей, GROUP BY.</p>
+                <a href="lab6/index.php">📝 Форма</a> <a href="lab6/admin.php">🛡️ Админка</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">аудит безопасности</div>
+                <h2>Лабораторная №7</h2>
+                <p>XSS, CSRF, SQL Injection, Information Disclosure.</p>
+                <a href="lab7/index.php">📝 Форма</a> <a href="lab7/admin.php">🛡️ Админка</a>
+            </div>
+            <div class="lab-card">
+                <div class="badge">REST API + Fetch</div>
+                <h2>Лабораторная №8</h2>
+                <p>Асинхронная отправка, JSON, POST/PUT, фоллбек.</p>
+                <a href="lab8/index.php">📝 Форма</a> <a href="lab8/admin.php">🛡️ Админка</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
