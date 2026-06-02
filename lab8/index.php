@@ -332,21 +332,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$isJsonRequest && isset($_POST['sa
         <div class="slider-container">
             <div class="slider">
                 <div class="slide">
-                    <img src="uploads/slide1.jpg" alt="Современные технологии">
+                    <img src="screenshots/planet.jpg" alt="Современные технологии">
                     <div class="slide-caption">
                         <h3>Современные технологии</h3>
                         <p>Мы используем передовые решения для вашего бизнеса</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="uploads/slide2.jpg" alt="Веб-разработка">
+                    <img src="screenshots/prog_lap.jpeg" alt="Веб-разработка">
                     <div class="slide-caption">
                         <h3>Веб-разработка</h3>
                         <p>Создаём сайты любой сложности</p>
                     </div>
                 </div>
                 <div class="slide">
-                    <img src="uploads/slide3.jpg" alt="Адаптивный дизайн">
+                    <img src="screenshots/adapt_dis.jpg" alt="Адаптивный дизайн">
                     <div class="slide-caption">
                         <h3>Адаптивный дизайн</h3>
                         <p>Ваш сайт будет идеально смотреться на любых устройствах</p>
