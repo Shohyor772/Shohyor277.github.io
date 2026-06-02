@@ -8,40 +8,137 @@ body {
     font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
     background: #0f172a;
     color: #e2e8f0;
-    padding: 2rem 1rem;
+    line-height: 1.6;
 }
 
 .container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
     background: #1e293b;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #334155;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #a5b4fc;
+    text-align: center;
+}
+
+/* Слайдер */
+.slider-container {
+    position: relative;
+    max-width: 100%;
+    margin: 2rem 0;
+    overflow: hidden;
     border-radius: 24px;
-    padding: 2rem;
     box-shadow: 0 20px 35px -12px #020617;
 }
 
-h1 {
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: white;
+    padding: 2rem;
     text-align: center;
-    margin-bottom: 2rem;
+}
+
+.slide-caption h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+button.prev:hover, button.next:hover {
+    background: rgba(0,0,0,0.8);
+}
+
+button.prev { left: 20px; }
+button.next { right: 20px; }
+
+.dots {
+    text-align: center;
+    padding: 1rem;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #334155;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #6366f1;
+    transform: scale(1.2);
+}
+
+/* Карточки */
+.card {
+    background: #1e293b;
+    border-radius: 24px;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: 0 20px 35px -12px #020617;
+}
+
+.card h2 {
     color: #a5b4fc;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
 }
 
-/* Сообщения об ошибках и успехе */
-.error {
-    background: #7f1a1a;
-    padding: 1rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    color: #fecaca;
-}
-
-.success {
-    background: #15803d;
-    padding: 1rem;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #dcfce7;
+.card p {
+    color: #cbd5e1;
+    margin-bottom: 1rem;
 }
 
 /* Форма */
@@ -66,7 +163,6 @@ input, select, textarea {
     font-size: 1rem;
 }
 
-/* Радиокнопки */
 .radio-group {
     display: flex;
     gap: 1.5rem;
@@ -80,7 +176,6 @@ input, select, textarea {
     font-weight: normal;
 }
 
-/* Чекбокс */
 .checkbox-group {
     display: flex;
     align-items: center;
@@ -91,8 +186,7 @@ input, select, textarea {
     width: auto;
 }
 
-/* Кнопка */
-button {
+button, .button {
     background: #6366f1;
     color: white;
     border: none;
@@ -104,17 +198,26 @@ button {
     transition: 0.2s;
 }
 
-button:hover {
+button:hover, .button:hover {
     background: #818cf8;
     transform: scale(1.02);
 }
 
-/* Подсветка ошибок для полей */
-.has-error input,
-.has-error select,
-.has-error .radio-group {
-    border: 2px solid #f87171;
-    background-color: rgba(248, 113, 113, 0.1);
+.error {
+    background: #7f1a1a;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: #fecaca;
+}
+
+.success {
+    background: #15803d;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: #dcfce7;
 }
 
 .field-error {
@@ -123,23 +226,65 @@ button:hover {
     margin-top: 0.25rem;
 }
 
-/* Мелкий текст */
-small {
-    color: #94a3b8;
-    font-size: 0.75rem;
+.has-error input,
+.has-error select,
+.has-error .radio-group {
+    border: 2px solid #f87171;
+    background-color: rgba(248, 113, 113, 0.1);
 }
 
-/* Ссылки */
-a {
-    color: #818cf8;
-    text-decoration: none;
+/* Футер */
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid #334155;
+    color: #64748b;
 }
 
-a:hover {
-    text-decoration: underline;
+/* Админка */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
 }
 
-/* Инфо-блок (авторизован) */
+.admin-table th, .admin-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+}
+
+.admin-table th {
+    background: #334155;
+    color: #f1f5f9;
+}
+
+.admin-table tr:hover {
+    background: #2d3a4f;
+}
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #1e293b;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    border-left: 4px solid #6366f1;
+}
+
+.stat-card strong {
+    font-size: 1.5rem;
+    color: #a5b4fc;
+}
+
 .info {
     background: #1e3a5f;
     padding: 1rem;
@@ -147,10 +292,15 @@ a:hover {
     margin-bottom: 1.5rem;
 }
 
-/* Форма логина */
 .login-form {
     background: #0f172a;
     padding: 1rem;
     border-radius: 12px;
     margin-bottom: 1.5rem;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #818cf8;
 }
